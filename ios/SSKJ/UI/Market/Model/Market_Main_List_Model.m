@@ -1,0 +1,38 @@
+//
+//  Market_Main_List_Model.m
+//  ZYW_MIT
+//
+//  Created by James on 2018/7/26.
+//  Copyright © 2018年 Wang. All rights reserved.
+//
+
+#import "Market_Main_List_Model.h"
+
+@implementation Market_Main_List_Model
+-(BOOL)isUSDT:(NSString *)code
+{
+    if ([code containsString:@"/"]) {
+        NSArray *array = [code componentsSeparatedByString:@"/"];
+        NSString *unit =  array[1];
+        BOOL isUsdt = [unit isEqualToString:@"USDT"];
+        return isUsdt;
+    }
+    return NO;
+}
+
+
+
+
+-(NSString *)fomatterNum:(NSString *)num
+{
+    BOOL isUsdt = [self isUSDT:_code];
+    //int count =isUsdt?4:8;
+    //return [WLTools notRounding:num.doubleValue afterPoint:count];
+    if(isUsdt)
+    {
+        return [NSString stringWithFormat:@"%.4f",num.doubleValue];
+    }else{
+        return [NSString stringWithFormat:@"%.8f",num.doubleValue];
+    }
+}
+@end

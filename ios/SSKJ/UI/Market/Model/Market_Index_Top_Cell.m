@@ -1,0 +1,460 @@
+//
+//  Market_Index_Top_Cell.m
+//  ZYW_MIT
+//
+//  Created by James on 2018/8/22.
+//  Copyright © 2018年 Wang. All rights reserved.
+//
+
+#import "Market_Index_Top_Cell.h"
+
+@implementation Market_Index_Top_Cell
+
+#pragma mark - 初始化
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if (self)
+    {
+        self.contentView.backgroundColor=kMainWihteColor;
+        
+        self.selectionStyle=UITableViewCellSelectionStyleNone;
+        
+        [self createUI];
+    }
+    
+    return self;
+}
+
+#pragma mark - 创建UI
+-(void)createUI
+{
+    
+    [self headerView];
+    
+    [self noticeView];
+    
+    [self logoIMV];
+    
+    [self gonggaoBtn];
+    
+    [self verLineView];
+    
+//    [self scrollTextView];
+    [self gonggaoDetailBtn];
+    
+    [self gonggaomoreBtn];
+    
+    [self spaceView];
+    
+    [self topLineView];
+    
+    
+    //[self bottomLineView];
+    
+}
+
+
+#pragma mark - 头部轮播视图
+-(SDCycleScrollView *)headerView
+{
+    if (_headerView==nil)
+    {
+        UIImage *imageHeight=[UIImage imageNamed:@"Market_banner"];
+        
+        _headerView=[SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, ScreenWidth, imageHeight.size.height) delegate:self placeholderImage:[UIImage imageNamed:@"Market_banner"]];
+        _headerView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+        _headerView.delegate = self;
+        _headerView.backgroundColor = kMainBackgroundColor;
+        _headerView.autoScrollTimeInterval = 3.0;
+        _headerView.pageControlStyle = SDCycleScrollViewPageContolStyleClassic;
+        _headerView.currentPageDotColor = kMainColor;
+        _headerView.pageDotColor = [WLTools stringToColor:@"#eeeeee"];
+        _headerView.currentPageDotImage = [UIImage imageNamed:@"lanse"];
+        _headerView.pageDotImage = [UIImage imageNamed:@"baise"];
+        [self.contentView addSubview:_headerView];
+        
+    }
+    
+    return _headerView;
+}
+
+#pragma mark - 公告背景视图
+-(UIView *)noticeView
+{
+    if (_noticeView==nil)
+    {
+        _noticeView=[[UIView alloc] init];
+        
+        _noticeView.backgroundColor=kMainWihteColor;
+        
+        [self.contentView addSubview:_noticeView];
+        
+        [_noticeView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.left.equalTo(@0);
+            
+            make.width.equalTo(@(ScreenWidth));
+            
+            make.height.equalTo(@40);
+            
+            make.top.equalTo(self.headerView.mas_bottom);
+            
+        }];
+    }
+    
+    return _noticeView;
+}
+
+-(UIButton *)gonggaoBtn
+{
+    if (_gonggaoBtn==nil)
+    {
+        UIImage *image=[UIImage imageNamed:@"market_gg"];
+        
+        _gonggaoBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        
+        _gonggaoBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        
+        [_gonggaoBtn setImage:image forState:0];
+        
+        [self.noticeView addSubview:_gonggaoBtn];
+        
+        [_gonggaoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.left.equalTo(@15);
+            
+            make.centerY.equalTo(self.noticeView.mas_centerY);
+            
+            make.width.equalTo(@(image.size.width));
+            
+            make.height.equalTo(@(image.size.height));
+        }];
+    }
+    
+    return _gonggaoBtn;
+}
+
+-(UIButton *)gonggaomoreBtn
+{
+    
+    if (_gonggaomoreBtn==nil)
+    {
+        UIImage *image=[UIImage imageNamed:@"market_gg"];
+        
+        _gonggaomoreBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        
+        _gonggaomoreBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        
+        _gonggaomoreBtn.userInteractionEnabled = NO;
+        
+        [_gonggaomoreBtn setTitle:SSKJLocalized(@"更多>", nil) forState:0];
+        
+        _gonggaomoreBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        
+        [_gonggaomoreBtn setTitleColor:kMainColor forState:0];
+        
+        [self.contentView addSubview:_gonggaomoreBtn];
+        
+        [_gonggaomoreBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.right.equalTo(self.contentView.mas_right).offset(-15);
+            
+            make.centerY.equalTo(self.noticeView.mas_centerY);
+            
+            make.width.equalTo(@(50));
+            
+            make.height.equalTo(@(image.size.height));
+        }];
+    }
+    
+    return _gonggaomoreBtn;
+}
+
+
+
+
+//#pragma mark - 滚动文本视图
+//-(LMJScrollTextView2 *)scrollTextView
+//{
+//    if (_scrollTextView==nil)
+//    {
+//        _scrollTextView=[[LMJScrollTextView2 alloc] init];
+//
+//        _scrollTextView.delegate=self;
+//
+//        _scrollTextView.backgroundColor=[UIColor whiteColor];
+//
+//        _scrollTextView.textColor=[WLTools stringToColor:@"#999999"];
+//
+//        _scrollTextView.textAlignment=NSTextAlignmentLeft;
+//
+//        _scrollTextView.touchEnable=YES;
+//
+//        [self.noticeView addSubview:_scrollTextView];
+//
+//        [_scrollTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+//
+//            make.left.equalTo(self.verLineView.mas_right).offset(10);
+//
+//            make.right.equalTo(self.contentView.mas_right).offset(-15);
+//
+//            make.top.equalTo(self.noticeView.mas_top).offset(10);
+//
+//            make.bottom.equalTo(self.noticeView.mas_bottom).offset(-10);
+//        }];
+//
+//
+//    }
+//
+//    return _scrollTextView;
+//}
+
+
+-(UIButton *)gonggaoDetailBtn
+{
+    if (_gonggaoDetailBtn==nil)
+    {
+        _gonggaoDetailBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        
+        [_gonggaoDetailBtn setTitle:SSKJLocalized(@"公告", nil) forState:0];
+        
+        _gonggaoDetailBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        
+        _gonggaoDetailBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        
+        [_gonggaoDetailBtn setTitleColor:kMainBlackColor forState:0];
+        
+        [_gonggaoDetailBtn addTarget:self action:@selector(gonggaoDetailBtnAction) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.noticeView addSubview:_gonggaoDetailBtn];
+        
+        [_gonggaoDetailBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.left.equalTo(self.gonggaoBtn.mas_right).offset(15);
+            
+            make.right.equalTo(self.contentView.mas_right).offset(-60);
+            
+            make.top.equalTo(self.noticeView.mas_top).offset(10);
+            
+            make.bottom.equalTo(self.noticeView.mas_bottom).offset(-10);
+        }];
+    }
+    
+    return _gonggaoDetailBtn;
+}
+
+
+#pragma mark - 分割区域
+-(UIView *)spaceView
+{
+    if (_spaceView==nil)
+    {
+        _spaceView=[[UIView alloc] init];
+        
+        _spaceView.backgroundColor=LineGrayColor;
+
+        [self.contentView addSubview:_spaceView];
+        
+        [_spaceView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(self.noticeView.mas_bottom);
+            
+            make.left.equalTo(@0);
+            
+            make.width.equalTo(@(ScreenWidth));
+            
+            make.height.equalTo(@5);
+        }];
+    }
+    
+    return _spaceView;
+}
+
+#pragma mark - 头部分割线
+-(UIView *)topLineView
+{
+    if (_topLineView==nil)
+    {
+        _topLineView=[[UIView alloc] init];
+        
+        _topLineView.backgroundColor=LineGrayColor;
+        
+        [self.contentView addSubview:_topLineView];
+        
+        [_topLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.top.equalTo(@0);
+            
+            make.width.equalTo(@(ScreenWidth));
+            
+            make.height.equalTo(@0.5);
+            
+            make.left.equalTo(@0);
+        }];
+    }
+    
+    return _topLineView;
+}
+
+#pragma mark - 底部分割线
+-(UIView *)bottomLineView
+{
+    if (_bottomLineView==nil)
+    {
+        _bottomLineView=[[UIView alloc] init];
+        
+        _bottomLineView.backgroundColor=kMainBackgroundColor;
+        
+        [self.noticeView addSubview:_bottomLineView];
+        
+        [_bottomLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(self.noticeView.mas_top);
+            
+            make.width.equalTo(@(ScreenWidth));
+            
+            make.height.equalTo(@0.5);
+            
+            make.left.equalTo(@0);
+        }];
+    }
+    
+    return _bottomLineView;
+}
+
+
+//-(void)initWithCellBannerArray:(NSMutableArray<Market_Index_Banner_Model *> *)bannerArray andNoticeArray:(NSMutableArray<Market_Index_Notice_Model *> *)noticeArray
+//{
+//    self.bannerArray=bannerArray;
+//
+//    self.noticeArray=noticeArray;
+//
+//    //轮播图
+//    [self.sliderArray removeAllObjects];
+//
+//    for (Market_Index_Banner_Model *bannerModel in self.bannerArray)
+//    {
+//        [self.sliderArray addObject:bannerModel.banner_url];
+//    }
+//
+//    self.headerView.imageURLStringsGroup=self.sliderArray;
+//
+//
+//
+//    //公告
+//    [self.notiArray removeAllObjects];
+//
+//    for (Market_Index_Notice_Model *noticeModel in self.noticeArray)
+//    {
+//        [self.notiArray addObject:noticeModel.title];
+//    }
+//
+//    if (self.noticeArray.count>0)
+//    {
+//        [self.gonggaoDetailBtn setTitle:self.notiArray[0] forState:0];
+//        self.scrollTextView.textDataArr=[NSArray arrayWithArray:self.notiArray];
+//
+//        [self.scrollTextView startScrollBottomToTopWithNoSpace];
+//    }
+//
+//
+//
+//}
+
+
+
+//#pragma mark -  点击图片回调
+//- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+//{
+//    if (self.bannerArray.count>0)
+//    {
+//        if (self.bannerClickBlock)
+//        {
+//            self.bannerClickBlock(index);
+//        }
+//    }
+//}
+//
+//#pragma mark - LMJScrollTextView2 Delegate
+//- (void)scrollTextView2:(LMJScrollTextView2 *)scrollTextView clickIndex:(NSInteger)index content:(NSString *)content
+//{
+//    if (self.noticeArray.count>0)
+//    {
+//        if (self.noticeClickBlock)
+//        {
+//            self.noticeClickBlock(index);
+//        }
+//    }
+//    
+//}
+//
+//- (void)gonggaoDetailBtnAction{
+//    if (self.noticeArray.count>0)
+//    {
+//        if (self.noticeClickBlock)
+//        {
+//            self.noticeClickBlock(0);
+//        }
+//    }
+//}
+
+
+//#pragma mark - 轮播动态数组
+//-(NSMutableArray<Market_Index_Banner_Model *> *)bannerArray
+//{
+//    if (_bannerArray==nil)
+//    {
+//        _bannerArray=[NSMutableArray array];
+//    }
+//
+//    return _bannerArray;
+//}
+//
+//#pragma mark - 公告
+//-(NSMutableArray<Market_Index_Notice_Model *> *)noticeArray
+//{
+//    if (_noticeArray==nil)
+//    {
+//        _noticeArray=[NSMutableArray array];
+//    }
+//
+//    return _noticeArray;
+//}
+
+
+#pragma mark - 动态轮播图
+-(NSMutableArray *)sliderArray
+{
+    if (_sliderArray==nil)
+    {
+        _sliderArray=[NSMutableArray array];
+    }
+    
+    return _sliderArray;
+}
+
+#pragma mark - 动态公告数组
+-(NSMutableArray *)notiArray
+{
+    if (_notiArray==nil)
+    {
+        _notiArray=[NSMutableArray array];
+    }
+    
+    return _notiArray;
+}
+
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+}
+
+@end

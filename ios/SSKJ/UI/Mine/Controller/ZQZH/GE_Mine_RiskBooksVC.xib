@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GE_Mine_RiskBooksVC">
+            <connections>
+                <outlet property="confimBtn" destination="QTt-au-nqs" id="3E3-mq-0S1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="3LR-rX-fqs" id="Y64-j4-B3l"/>
+                <outlet property="yueduBtn" destination="gha-xA-BMY" id="sv8-iD-MRQ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESo-Tb-3TP">
+                    <rect key="frame" x="0.0" y="527" width="375" height="140"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTt-au-nqs">
+                            <rect key="frame" x="15" y="57" width="345" height="45"/>
+                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="321-jP-q06"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="确认" backgroundImage="public_Btn">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="confirmBtnClick:" destination="-1" eventType="touchUpInside" id="1kW-OP-Rha"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gha-xA-BMY">
+                            <rect key="frame" x="15" y="14" width="200" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="Kxz-Jk-qHS"/>
+                                <constraint firstAttribute="height" constant="25" id="Smj-Rb-Pu6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="我已经阅读，同意此条款" image="GE_My_xuanze">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" image="GE_My_xuanzeH"/>
+                            <connections>
+                                <action selector="yueDuBtnClick:" destination="-1" eventType="touchUpInside" id="DIb-oL-MPL"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="gha-xA-BMY" firstAttribute="leading" secondItem="ESo-Tb-3TP" secondAttribute="leading" constant="15" id="19v-MG-Sq4"/>
+                        <constraint firstAttribute="trailing" secondItem="QTt-au-nqs" secondAttribute="trailing" constant="15" id="9dm-75-dVm"/>
+                        <constraint firstItem="QTt-au-nqs" firstAttribute="leading" secondItem="ESo-Tb-3TP" secondAttribute="leading" constant="15" id="J72-pV-WHg"/>
+                        <constraint firstItem="gha-xA-BMY" firstAttribute="top" secondItem="ESo-Tb-3TP" secondAttribute="top" constant="14" id="g1h-BK-FF6"/>
+                        <constraint firstItem="QTt-au-nqs" firstAttribute="top" secondItem="gha-xA-BMY" secondAttribute="bottom" constant="18" id="iwn-6d-cmr"/>
+                        <constraint firstAttribute="height" constant="140" id="sVP-Tc-apI"/>
+                    </constraints>
+                </view>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3LR-rX-fqs">
+                    <rect key="frame" x="0.0" y="20" width="375" height="507"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3LR-rX-fqs" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="Ey3-DO-Kgi"/>
+                <constraint firstItem="ESo-Tb-3TP" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="NJP-ny-ua9"/>
+                <constraint firstItem="ESo-Tb-3TP" firstAttribute="top" secondItem="3LR-rX-fqs" secondAttribute="bottom" id="Wjm-iS-ZJW"/>
+                <constraint firstItem="3LR-rX-fqs" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="hTR-q0-grf"/>
+                <constraint firstItem="3LR-rX-fqs" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="njz-4g-2qi"/>
+                <constraint firstItem="ESo-Tb-3TP" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="ov8-Ah-KhZ"/>
+                <constraint firstItem="ESo-Tb-3TP" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="pj4-Qg-OGd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="138.40000000000001" y="154.27286356821591"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="GE_My_xuanze" width="14" height="14"/>
+        <image name="GE_My_xuanzeH" width="14" height="14"/>
+        <image name="public_Btn" width="345" height="45"/>
+    </resources>
+</document>
