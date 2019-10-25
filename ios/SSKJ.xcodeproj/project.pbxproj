@@ -66,6 +66,7 @@
 		06304DF021BE319200279355 /* ManagerSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06304DEE21BE319100279355 /* ManagerSocket.m */; };
 		06304DF421BE323E00279355 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06304DF121BE323D00279355 /* SRWebSocket.m */; };
 		9684B4A2235074370092CB08 /* 1242_x2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 9684B4A1235074370092CB08 /* 1242_x2208.png */; };
+		96A5EA5E2362BE6F00F55EE5 /* TimerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A5EA5C2362BE6F00F55EE5 /* TimerHelper.m */; };
 		D403BB5F2283D0260015A2D0 /* RZ_Mine_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D403BB5E2283D0260015A2D0 /* RZ_Mine_ViewController.m */; };
 		D42ADA0622486D7200C9BEA2 /* Market_Chart_Detail_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42ADA0522486D7200C9BEA2 /* Market_Chart_Detail_ViewController.m */; };
 		D42ADA0922486D9F00C9BEA2 /* Market_Main_List_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D42ADA0722486D9F00C9BEA2 /* Market_Main_List_Model.m */; };
@@ -404,6 +405,8 @@
 		06304DF321BE323D00279355 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		17A7217B05B6733F5717962C /* libPods-SSKJ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSKJ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9684B4A1235074370092CB08 /* 1242_x2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1242_x2208.png; path = "启动图/1242_x2208.png"; sourceTree = SOURCE_ROOT; };
+		96A5EA5C2362BE6F00F55EE5 /* TimerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerHelper.m; sourceTree = "<group>"; };
+		96A5EA5D2362BE6F00F55EE5 /* TimerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerHelper.h; sourceTree = "<group>"; };
 		AEB6BFD3D0313E785FC325A2 /* Pods-SSKJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSKJ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSKJ/Pods-SSKJ.debug.xcconfig"; sourceTree = "<group>"; };
 		C11560923295BE722DFA99B7 /* Pods-SSKJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSKJ.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSKJ/Pods-SSKJ.release.xcconfig"; sourceTree = "<group>"; };
 		D403BB5D2283D0260015A2D0 /* RZ_Mine_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZ_Mine_ViewController.h; sourceTree = "<group>"; };
@@ -934,6 +937,8 @@
 				06304D9521BE0B4300279355 /* SSKJLocalized.m */,
 				06304B5121B9166600279355 /* WLTools.h */,
 				06304B5021B9166500279355 /* WLTools.m */,
+				96A5EA5D2362BE6F00F55EE5 /* TimerHelper.h */,
+				96A5EA5C2362BE6F00F55EE5 /* TimerHelper.m */,
 				06304D8F21BE05B700279355 /* RegularExpression.h */,
 				06304D8E21BE05B600279355 /* RegularExpression.m */,
 				06304B5D21B91C4100279355 /* WL_KeyChainStore.h */,
@@ -2403,6 +2408,7 @@
 				D403BB5F2283D0260015A2D0 /* RZ_Mine_ViewController.m in Sources */,
 				06304B1821B915AE00279355 /* NSAttributedString+AvoidCrash.m in Sources */,
 				D42ADA942248739C00C9BEA2 /* Market_Chart_Detail_Intro_Model.m in Sources */,
+				96A5EA5E2362BE6F00F55EE5 /* TimerHelper.m in Sources */,
 				D4733B3A2242290200D54A45 /* BaseView.m in Sources */,
 				D4733B742242323700D54A45 /* GE_ZiXun_PingTaiVC.m in Sources */,
 				D4733B16224207EC00D54A45 /* GE_Trading_CurrentDelegateVC.m in Sources */,
@@ -2652,6 +2658,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6D5Q4H7PDR;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SSKJ/Define/PrefixHeader.pch";
@@ -2661,6 +2668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxjy.soft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2676,6 +2684,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6D5Q4H7PDR;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SSKJ/Define/PrefixHeader.pch";
@@ -2685,6 +2694,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxjy.soft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

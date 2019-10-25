@@ -58,7 +58,7 @@
         _coinButton.left = 10;
         _coinButton.centerY = self.height/2.f;
         
-        [_coinButton setTitle:SSKJLocalized(@"融资/做多", nil) forState:UIControlStateNormal];
+        [_coinButton setTitle:SSKJLocalized(@"做多", nil) forState:UIControlStateNormal];
         
         [_coinButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
@@ -105,7 +105,7 @@
         _contractButton.left = _coinButton.right + 13;
         _contractButton.centerY = self.height/2.f;
         
-        [_contractButton setTitle:SSKJLocalized(@"融券/做空", nil) forState:UIControlStateNormal];
+        [_contractButton setTitle:SSKJLocalized(@"做空", nil) forState:UIControlStateNormal];
         
         [_contractButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         

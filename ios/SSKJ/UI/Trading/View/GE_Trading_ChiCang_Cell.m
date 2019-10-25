@@ -185,7 +185,7 @@
             
             self.label8.hidden = YES;
             
-            self.directionLable.text = [NSString stringWithFormat:@"%@ %@",[data.otype integerValue] == 1 ? @"融资" : @"融券",data.pname];
+            self.directionLable.text = [NSString stringWithFormat:@"%@ %@",[data.otype integerValue] == 1 ? @"做多" : @"做空",data.pname];
             
             [self setLabelAttributed:self.directionLable color:[data.otype integerValue] == 1 ? RED_HEX_COLOR : GREEN_HEX_COLOR];
             
@@ -234,7 +234,7 @@
             
             self.gyfeeLabel.hidden = YES;
             
-            self.directionLable.text = [NSString stringWithFormat:@"%@ %@",[data.otype integerValue] == 1 ? @"融资" : @"融券",data.pname];
+            self.directionLable.text = [NSString stringWithFormat:@"%@ %@",[data.otype integerValue] == 1 ? @"做多" : @"做空",data.pname];
             
             [self setLabelAttributed:self.directionLable color:[data.buyBillType integerValue] == 1 ? RED_HEX_COLOR : GREEN_HEX_COLOR];
             

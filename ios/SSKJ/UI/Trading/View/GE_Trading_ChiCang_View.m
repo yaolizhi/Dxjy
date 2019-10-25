@@ -35,7 +35,7 @@
     
     self.yuanYouLabel.text = model.pname;
     
-    self.zuoLabel.text = [NSString stringWithFormat:@"%@",[model.otype integerValue] == 1 ? @"融资" : @"融券"];
+    self.zuoLabel.text = [NSString stringWithFormat:@"%@",[model.otype integerValue] == 1 ? @"做多" : @"做空"];
     
     self.zuoLabel.textColor = [model.otype integerValue] == 1 ? RED_HEX_COLOR : GREEN_HEX_COLOR;
     

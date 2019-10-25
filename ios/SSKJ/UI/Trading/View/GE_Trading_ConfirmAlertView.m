@@ -576,7 +576,7 @@
     _dic = data;
     self.nameLabel.text = data[@"code"];
     self.codeLabel.text = data[@"shopname"];
-    self.statusLabel.text = [data[@"otype"] integerValue] == 1 ? SSKJLocalized(@"融资", nil):SSKJLocalized(@"融券", nil);
+    self.statusLabel.text = [data[@"otype"] integerValue] == 1 ? SSKJLocalized(@"做多", nil):SSKJLocalized(@"做空", nil);
     self.statusLabel.textColor = [data[@"otype"] integerValue] == 1 ? RED_HEX_COLOR:GREEN_HEX_COLOR;
     
     self.priceLabel.text = [WLTools noroundingStringWith:[data[@"price"] doubleValue] afterPointNumber:6];

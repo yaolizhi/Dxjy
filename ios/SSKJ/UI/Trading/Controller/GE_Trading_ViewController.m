@@ -111,8 +111,8 @@
                            _queryVC,
                            ];
     
-    NSArray *titleArray =@[@"融资",
-                           @"融券",
+    NSArray *titleArray =@[@"做多",
+                           @"多空",
                            @"持仓",
                            @"成交",
                            ];

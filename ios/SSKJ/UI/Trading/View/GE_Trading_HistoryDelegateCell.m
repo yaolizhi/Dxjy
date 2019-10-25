@@ -41,7 +41,7 @@
 
 - (void)setDataWithModel:(GE_Trading_HistioryOrder_Model *)model type:(NSString *)str
 {
-    self.zuoduoLabel.text = model.otype.integerValue == 1 ? @"融资" : @"融券";
+    self.zuoduoLabel.text = model.otype.integerValue == 1 ? @"做多" : @"做空";
     
     self.zuoduoLabel.textColor = model.otype.integerValue == 1 ? RED_HEX_COLOR : GREEN_HEX_COLOR;
     

@@ -35,6 +35,8 @@
 #import "BFEX_System_Version_View.h"
 
 #import "Market_Main_Slider_Web_ViewController.h"
+#import "TimerHelper.h"
+
 
 #define kPage_size @"10"
 
@@ -110,25 +112,31 @@ static NSString *titleSectionID=@"titleSectionID";
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
 
     
+    WS(weakSelf);
+    [TimerHelper timerCountDownWithTimeInterval:^(BOOL sign) {
+        
+        
+        [weakSelf requestCreateOrdereUrl];
+        
+    }];
+    
 }
 
 -(void)applicationDidBecomeActive:(NSNotification *)notification
 {
-    if (self.isAppear) {
+    if (self.isAppear)
+    {
         //获取股票列表
-        [self requestCreateOrdereUrl];
-        
-        if ([[ManagerSocket sharedManager] socketIsConnected] == NO)
-        {
-            [self loadSocketMarketListData];
-        }
-        else
-        {
-            NSLog(@"\r行情->推送关闭~");
-        }
-        
-        
-        [self.timer fire];
+//        [self requestCreateOrdereUrl];
+//        if ([[ManagerSocket sharedManager] socketIsConnected] == NO)
+//        {
+//            [self loadSocketMarketListData];
+//        }
+//        else
+//        {
+//            NSLog(@"\r行情->推送关闭~");
+//        }
+//        [self.timer fire];
         
     }
 }
@@ -177,7 +185,7 @@ static NSString *titleSectionID=@"titleSectionID";
     [self.navigationController setNavigationBarHidden:YES];
     
     //获取股票列表
-    [self requestCreateOrdereUrl];
+//    [self requestCreateOrdereUrl];
     
     if ([[ManagerSocket sharedManager] socketIsConnected] == NO)
     {
@@ -463,7 +471,7 @@ static NSString *titleSectionID=@"titleSectionID";
 {
     //banner网络请求
     [self httpRequestWithBanner];
-    [self requestCreateOrdereUrl];
+//    [self requestCreateOrdereUrl];
 //    [self requestSysSetUrl];
 }
 
@@ -486,7 +494,6 @@ static NSString *titleSectionID=@"titleSectionID";
 - (void)requestCreateOrdereUrl
 {
  
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
     [[WLHttpManager shareManager] requestWithURL_HTTPCode:GE_getpro_URL RequestType:RequestTypePost Parameters:nil Success:^(NSInteger statusCode, id responseObject) {
 //        NSLog(@"获取商品列表 :%@",responseObject);
         WL_Network_Model *networkModel = [WL_Network_Model mj_objectWithKeyValues:responseObject];
@@ -507,17 +514,20 @@ static NSString *titleSectionID=@"titleSectionID";
                 }
             }
             [self.tableView reloadData];
-        }else{
+        }
+        else
+        {
             [MBProgressHUD showError:networkModel.msg];
         }
-        [hud hideAnimated:YES];
         [self.tableView.mj_header endRefreshing];
-    } Failure:^(NSError *error, NSInteger statusCode, id responseObject) {
-//        NSLog(@"%@",error);
-        [hud hideAnimated:YES];
+    } Failure:^(NSError *error, NSInteger statusCode, id responseObject)
+    {
         [self.tableView.mj_header endRefreshing];
     }];
 }
+
+
+
 
 
 #pragma mark - 检测版本更新

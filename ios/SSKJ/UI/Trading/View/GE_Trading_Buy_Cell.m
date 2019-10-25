@@ -341,6 +341,7 @@
     if (_totalPriceTitle == nil) {
         _totalPriceTitle = [FactoryUI createLabelWithFrame:CGRectZero text:@"综合服务费" textColor:kMainBlackColor font:systemFont(15)];
         [self.contentView addSubview:_totalPriceTitle];
+        [_totalPriceTitle setHidden:YES];
         [_totalPriceTitle mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(@15);
             make.top.equalTo(self.baozhengjinView.mas_bottom).offset(15);
@@ -354,6 +355,7 @@
     if (_totalPriceLabel == nil) {
         _totalPriceLabel = [FactoryUI createLabelWithFrame:CGRectZero text:@"----" textColor:RED_HEX_COLOR font:systemFont(18)];
         [self.contentView addSubview:_totalPriceLabel];
+        [_totalPriceLabel setHidden:YES];
         [_totalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@(-15));
             make.top.equalTo(self.totalPriceTitle.mas_top);
@@ -365,7 +367,7 @@
 
 - (UIButton *)sureBtn{
     if (_sureBtn == nil) {
-        _sureBtn = [FactoryUI createButtonWithFrame:CGRectZero title:@"融资(做多)" titleColor:kMainWihteColor imageName:nil backgroundImageName:nil target:self selector:@selector(sureBtnAction) font:systemFont(15)];
+        _sureBtn = [FactoryUI createButtonWithFrame:CGRectZero title:@"做多" titleColor:kMainWihteColor imageName:nil backgroundImageName:nil target:self selector:@selector(sureBtnAction) font:systemFont(15)];
         _sureBtn.backgroundColor = RED_HEX_COLOR;
         _sureBtn.layer.cornerRadius = 5;
         _sureBtn.layer.masksToBounds = YES;
